@@ -29,6 +29,16 @@ const IssueBooks = () => {
       return;
     }
 
+    if (books.length != total_books) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Number of books are not equal to count.",
+        confirmButtonColor: "#D6465B",
+      });
+      return;
+    }
+
     setLoading(true);
     axios
       .post(
