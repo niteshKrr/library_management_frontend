@@ -26,7 +26,7 @@ const AddBookPage = () => {
     }
     setLoading(true);
     axios
-      .post(`http://localhost:4000/dashboard/books/add`, {
+      .post(`https://www.backend.library.dakshalnjpit.in/dashboard/books/add`, {
         name,
         author,
         publication,

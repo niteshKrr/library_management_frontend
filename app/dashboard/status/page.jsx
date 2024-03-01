@@ -24,7 +24,10 @@ const Page = ({ searchParams }) => {
   const fetchStudents = () => {
     setLoading(true);
     axios
-      .get(`http://localhost:4000/dashboard/students/?q=${q}&page=${page}`, {})
+      .get(
+        `https://www.backend.library.dakshalnjpit.in/dashboard/students/?q=${q}&page=${page}`,
+        {}
+      )
       .then((response) => {
         setLoading(false);
         setStudents(response.data.users);
@@ -96,7 +99,14 @@ const Page = ({ searchParams }) => {
                   )}
                 </td>
                 <td>{user.total_books}</td>
-                <td>{user.createdAt?.toString().slice(0, 10).split('-').reverse().join('-')}</td>
+                <td>
+                  {user.createdAt
+                    ?.toString()
+                    .slice(0, 10)
+                    .split("-")
+                    .reverse()
+                    .join("-")}
+                </td>
                 <td>{calculateDueDate(user.createdAt)}</td>
               </tr>
             ))}

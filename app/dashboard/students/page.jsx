@@ -20,7 +20,9 @@ const Page = ({ searchParams }) => {
   const handleDeleteUser = (userId) => {
     setLoading(true);
     axios
-      .delete(`http://localhost:4000/dashboard/students/${userId}`)
+      .delete(
+        `https://www.backend.library.dakshalnjpit.in/dashboard/students/${userId}`
+      )
       .then((response) => {
         // console.log(response.data);
         setStudents((prevStudents) =>
@@ -46,7 +48,10 @@ const Page = ({ searchParams }) => {
   const fetchStudents = () => {
     setLoading(true);
     axios
-      .get(`http://localhost:4000/dashboard/students/?q=${q}&page=${page}`, {})
+      .get(
+        `https://www.backend.library.dakshalnjpit.in/dashboard/students/?q=${q}&page=${page}`,
+        {}
+      )
       .then((response) => {
         setLoading(false);
         setStudents(response.data.users);

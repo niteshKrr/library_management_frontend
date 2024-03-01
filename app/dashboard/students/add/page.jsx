@@ -30,15 +30,18 @@ const AddUserPage = () => {
     }
     setLoading(true);
     axios
-      .post(`http://localhost:4000/dashboard/students/add`, {
-        name,
-        email,
-        total_books,
-        books_id,
-        books_name,
-        reg_roll,
-        phone,
-      })
+      .post(
+        `https://www.backend.library.dakshalnjpit.in/dashboard/students/add`,
+        {
+          name,
+          email,
+          total_books,
+          books_id,
+          books_name,
+          reg_roll,
+          phone,
+        }
+      )
       .then(() => {
         setLoading(false);
         Swal.fire({

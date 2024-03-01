@@ -52,7 +52,10 @@ const Page = ({ searchParams }) => {
   const fetchBooks = () => {
     setLoading(true);
     axios
-      .get(`http://localhost:4000/dashboard/books/?q=${q}&page=${page}`, {})
+      .get(
+        `https://www.backend.library.dakshalnjpit.in/dashboard/books/?q=${q}&page=${page}`,
+        {}
+      )
       .then((response) => {
         setLoading(false);
         setBooks(response.data.all_books);
@@ -67,7 +70,7 @@ const Page = ({ searchParams }) => {
   const fetchStudents = () => {
     setLoading(true);
     axios
-      .get(`http://localhost:4000/dashboard/students`)
+      .get(`https://www.backend.library.dakshalnjpit.in/dashboard/students`)
       .then((response) => {
         setLoading(false);
         setStudents(response.data.all_students);
@@ -92,7 +95,7 @@ const Page = ({ searchParams }) => {
             ))}
           </div>
           {/* <Suspense fallback={<Loading />}> */}
-            <Chart />
+          <Chart />
           {/* </Suspense> */}
         </div>
         <div className={styles.side}>

@@ -22,7 +22,9 @@ const Page = ({ searchParams }) => {
   const handleDeleteUser = (bookId) => {
     setLoading(true);
     axios
-      .delete(`http://localhost:4000/dashboard/books/${bookId}`)
+      .delete(
+        `https://www.backend.library.dakshalnjpit.in/dashboard/books/${bookId}`
+      )
       .then((response) => {
         // console.log(response.data);
         setBooks((prevBooks) =>
@@ -48,7 +50,10 @@ const Page = ({ searchParams }) => {
   const fetchBooks = () => {
     setLoading(true);
     axios
-      .get(`http://localhost:4000/dashboard/books/?q=${q}&page=${page}`, {})
+      .get(
+        `https://www.backend.library.dakshalnjpit.in/dashboard/books/?q=${q}&page=${page}`,
+        {}
+      )
       .then((response) => {
         setLoading(false);
         setBooks(response.data.books);

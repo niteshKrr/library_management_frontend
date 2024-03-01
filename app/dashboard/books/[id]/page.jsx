@@ -27,12 +27,15 @@ const SingleUserPage = ({ params }) => {
 
     setLoading(true);
     axios
-      .put(`http://localhost:4000/dashboard/books/${userId}`, {
-        name,
-        author,
-        publication,
-        quantity,
-      })
+      .put(
+        `https://www.backend.library.dakshalnjpit.in/dashboard/books/${userId}`,
+        {
+          name,
+          author,
+          publication,
+          quantity,
+        }
+      )
       .then((response) => {
         setLoading(false);
         Swal.fire({
@@ -64,7 +67,9 @@ const SingleUserPage = ({ params }) => {
       setLoading(true);
 
       axios
-        .get(`http://localhost:4000/dashboard/books/${params.id}`)
+        .get(
+          `https://www.backend.library.dakshalnjpit.in/dashboard/books/${params.id}`
+        )
         .then((response) => {
           console.log(response);
           setBook(response.data.book);

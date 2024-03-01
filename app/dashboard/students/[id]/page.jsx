@@ -32,12 +32,15 @@ const SingleUserPage = ({ params }) => {
 
     setLoading(true);
     axios
-      .put(`http://localhost:4000/dashboard/students/${userId}`, {
-        name,
-        email,
-        phone,
-        reg_roll,
-      })
+      .put(
+        `https://www.backend.library.dakshalnjpit.in/dashboard/students/${userId}`,
+        {
+          name,
+          email,
+          phone,
+          reg_roll,
+        }
+      )
       .then((response) => {
         setLoading(false);
         Swal.fire({
@@ -69,7 +72,9 @@ const SingleUserPage = ({ params }) => {
       setLoading(true);
 
       axios
-        .get(`http://localhost:4000/dashboard/students/${params.id}`)
+        .get(
+          `https://www.backend.library.dakshalnjpit.in/dashboard/students/${params.id}`
+        )
         .then((response) => {
           setUser(response.data.user);
           setBooks_id(response.data.user.books_id);
